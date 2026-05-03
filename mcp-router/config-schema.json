@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MCP SMB Router Configuration",
+  "type": "object",
+  "required": [
+    "apiKey"
+  ],
+  "properties": {
+    "apiKey": {
+      "type": "string",
+      "title": "ThinkNEO API Key",
+      "description": "Your TNC API key. Get one at https://thinkneo.app/signup (500 TNC free trial).",
+      "minLength": 32
+    },
+    "host": {
+      "type": "string",
+      "title": "Host",
+      "description": "Server bind address",
+      "default": "0.0.0.0"
+    },
+    "port": {
+      "type": "integer",
+      "title": "Port",
+      "description": "Server port",
+      "default": 8104
+    }
+  },
+  "additionalProperties": false
+}
