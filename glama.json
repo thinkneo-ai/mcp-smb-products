@@ -1,0 +1,37 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "thinkneo-mcp-smb-products",
+  "description": "13 MCP SMB products for small and medium businesses — AI Guardrails, FinOps, Observability, Smart Router, Trust Score, Memory, ThinkSecure, A2A Lite, SmartCEO, Mary (EA), Think3D, ThinkCall, SmartCampaign. 63 tools total, TNC credits billing, streamable-http transport.",
+  "maintainers": [
+    "thinkneo-ai"
+  ],
+  "repository": "https://github.com/thinkneo-ai/mcp-smb-products",
+  "homepage": "https://thinkneo.app",
+  "categories": [
+    "governance",
+    "security",
+    "analytics",
+    "devops",
+    "productivity",
+    "communication",
+    "media"
+  ],
+  "tags": [
+    "mcp-smb",
+    "ai-governance",
+    "guardrails",
+    "finops",
+    "observability",
+    "smart-router",
+    "trust-score",
+    "memory",
+    "security",
+    "a2a-protocol",
+    "executive-assistant",
+    "3d-generation",
+    "voice-calling",
+    "campaign-intelligence",
+    "smb",
+    "tnc-credits"
+  ]
+}

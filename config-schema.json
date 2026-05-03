@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ThinkNEO MCP SMB Products Configuration",
+  "type": "object",
+  "required": ["apiKey"],
+  "properties": {
+    "apiKey": {
+      "type": "string",
+      "title": "ThinkNEO API Key",
+      "description": "Your TNC API key for billing. Sign up at https://thinkneo.app/signup for 500 free credits.",
+      "minLength": 32
+    },
+    "product": {
+      "type": "string",
+      "title": "Product",
+      "description": "Which MCP SMB product to connect to.",
+      "enum": [
+        "guardrails",
+        "finops",
+        "observability",
+        "router",
+        "trust-score",
+        "memory",
+        "thinksecure",
+        "a2a-lite",
+        "smartceo",
+        "mary",
+        "think3d",
+        "thinkcall",
+        "smartcampaign"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
