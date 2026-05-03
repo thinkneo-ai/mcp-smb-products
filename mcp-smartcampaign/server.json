@@ -1,0 +1,19 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "ai.thinkneo/smb-smartcampaign",
+  "title": "MCP SMB SmartCampaign",
+  "description": "Campaign intelligence platform \u2014 24/7 news monitoring, competitor agenda mapping, social sentiment analysis, deepfake detection, and talking point generation. 5 tools, TNC credits billing.",
+  "websiteUrl": "https://thinkneo.app",
+  "repository": {
+    "url": "https://github.com/thinkneo-ai/mcp-smb-products",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "license": "MIT",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.thinkneo.app/smb/smartcampaign/mcp"
+    }
+  ]
+}

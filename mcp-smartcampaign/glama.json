@@ -1,0 +1,22 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "thinkneo-smb-smartcampaign",
+  "description": "Campaign intelligence platform \u2014 24/7 news monitoring, competitor agenda mapping, social sentiment analysis, deepfake detection, and talking point generation. 5 tools, TNC credits billing.",
+  "maintainers": [
+    "thinkneo-ai"
+  ],
+  "repository": "https://github.com/thinkneo-ai/mcp-smb-products",
+  "homepage": "https://thinkneo.app",
+  "categories": [
+    "analytics",
+    "media"
+  ],
+  "tags": [
+    "campaign-intelligence",
+    "news-monitoring",
+    "deepfake-detection",
+    "sentiment",
+    "smb",
+    "mcp"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "thinkneo-smb-guardrails",
+  "description": "AI safety for SMBs \u2014 detect prompt injection, PII leaks, secrets exposure, and toxic content before they reach your models. 4 tools, TNC credits billing.",
+  "maintainers": [
+    "thinkneo-ai"
+  ],
+  "repository": "https://github.com/thinkneo-ai/mcp-smb-products",
+  "homepage": "https://thinkneo.app",
+  "categories": [
+    "security",
+    "governance"
+  ],
+  "tags": [
+    "guardrails",
+    "prompt-injection",
+    "pii-detection",
+    "secrets-scanning",
+    "smb",
+    "mcp"
+  ]
+}

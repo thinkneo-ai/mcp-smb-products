@@ -1,0 +1,19 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "ai.thinkneo/smb-thinksecure",
+  "title": "MCP SMB ThinkSecure",
+  "description": "Runtime security controls for AI workloads \u2014 input sanitization, output validation, RBAC, and compliance audit trail exportable for SOC 2 and GDPR. 5 tools, TNC credits billing.",
+  "websiteUrl": "https://thinkneo.app",
+  "repository": {
+    "url": "https://github.com/thinkneo-ai/mcp-smb-products",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "license": "MIT",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.thinkneo.app/smb/thinksecure/mcp"
+    }
+  ]
+}

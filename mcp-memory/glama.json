@@ -1,0 +1,22 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "thinkneo-smb-memory",
+  "description": "Persistent, searchable memory for AI agents \u2014 store, recall, and manage knowledge across sessions. Namespace isolation, tagging, and TTL support. 5 tools, TNC credits billing.",
+  "maintainers": [
+    "thinkneo-ai"
+  ],
+  "repository": "https://github.com/thinkneo-ai/mcp-smb-products",
+  "homepage": "https://thinkneo.app",
+  "categories": [
+    "knowledge-base",
+    "devops"
+  ],
+  "tags": [
+    "memory",
+    "persistence",
+    "knowledge-base",
+    "ai-agents",
+    "smb",
+    "mcp"
+  ]
+}

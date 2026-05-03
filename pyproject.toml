@@ -1,0 +1,21 @@
+[project]
+name = "thinkneo-mcp-products"
+version = "1.0.0"
+description = "ThinkNEO PME MCP Product Servers — individual MCP servers per product"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.9.0",
+    "httpx>=0.27.0",
+    "uvicorn[standard]>=0.32.0",
+    "starlette>=0.41.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "psycopg[binary]>=3.1.0",
+    "psycopg_pool>=3.2.0",
+    "redis>=5.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"

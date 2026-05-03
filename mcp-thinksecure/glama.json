@@ -1,0 +1,23 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "thinkneo-smb-thinksecure",
+  "description": "Runtime security controls for AI workloads \u2014 input sanitization, output validation, RBAC, and compliance audit trail exportable for SOC 2 and GDPR. 5 tools, TNC credits billing.",
+  "maintainers": [
+    "thinkneo-ai"
+  ],
+  "repository": "https://github.com/thinkneo-ai/mcp-smb-products",
+  "homepage": "https://thinkneo.app",
+  "categories": [
+    "security",
+    "governance"
+  ],
+  "tags": [
+    "security",
+    "sanitization",
+    "audit-trail",
+    "soc2",
+    "gdpr",
+    "smb",
+    "mcp"
+  ]
+}

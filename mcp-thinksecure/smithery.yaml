@@ -1,0 +1,29 @@
+name: thinkneo-ai/smb-thinksecure
+displayName: MCP SMB ThinkSecure
+description: >
+  Runtime security controls for AI workloads — input sanitization, output validation, RBAC, and compliance audit trail exportable for SOC 2 and GDPR. 5 tools, TNC credits billing.
+homepage: https://thinkneo.app
+icon: https://thinkneo.app/favicon.ico
+license: MIT
+tags:
+  - security
+  - sanitization
+  - audit-trail
+  - soc2
+  - gdpr
+  - smb
+  - mcp
+
+start: uvicorn src.server:app --host 0.0.0.0 --port 8107
+
+config:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  type: object
+  properties:
+    apiKey:
+      type: string
+      title: ThinkNEO API Key (TNC Credits)
+      description: >
+        Required for all tools. Each call consumes TNC credits.
+        Get your key and free trial credits at https://thinkneo.app/signup
+      secret: true

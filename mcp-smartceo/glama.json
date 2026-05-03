@@ -1,0 +1,22 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "thinkneo-smb-smartceo",
+  "description": "Live call AI briefing platform \u2014 real-time translation (EN/PT-BR/ES), intent detection, response suggestions, and post-call summaries with action items. 5 tools, TNC credits billing.",
+  "maintainers": [
+    "thinkneo-ai"
+  ],
+  "repository": "https://github.com/thinkneo-ai/mcp-smb-products",
+  "homepage": "https://thinkneo.app",
+  "categories": [
+    "productivity",
+    "communication"
+  ],
+  "tags": [
+    "call-briefing",
+    "translation",
+    "intent-detection",
+    "voice-ai",
+    "smb",
+    "mcp"
+  ]
+}
