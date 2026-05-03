@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
   "name": "ai.thinkneo/mcp-smb-products",
   "title": "ThinkNEO MCP SMB Products",
-  "description": "13 standalone MCP servers for SMBs: Guardrails, FinOps, Observability, Smart Router, Trust Score, Memory, ThinkSecure, A2A Lite, SmartCEO, Mary, Think3D, ThinkCall, SmartCampaign. 63 tools total. All billed via TNC (ThinkNEO Credits). Free trial: 500 TNC on signup.",
+  "description": "8 standalone MCP servers for SMBs: Guardrails, FinOps, Observability, Smart Router, Trust Score, Memory, ThinkSecure, A2A Lite. 37 tools total. All billed via TNC (ThinkNEO Credits). Free trial: 500 TNC on signup.",
   "websiteUrl": "https://thinkneo.app",
   "repository": {
     "url": "https://github.com/thinkneo-ai/mcp-smb-products",
@@ -50,31 +50,6 @@
       "type": "streamable-http",
       "url": "https://mcp.thinkneo.app/smb/a2a-lite/mcp",
       "label": "MCP SMB A2A Lite"
-    },
-    {
-      "type": "streamable-http",
-      "url": "https://mcp.thinkneo.app/smb/smartceo/mcp",
-      "label": "MCP SMB SmartCEO"
-    },
-    {
-      "type": "streamable-http",
-      "url": "https://mcp.thinkneo.app/smb/mary/mcp",
-      "label": "MCP SMB Mary"
-    },
-    {
-      "type": "streamable-http",
-      "url": "https://mcp.thinkneo.app/smb/think3d/mcp",
-      "label": "MCP SMB Think3D"
-    },
-    {
-      "type": "streamable-http",
-      "url": "https://mcp.thinkneo.app/smb/thinkcall/mcp",
-      "label": "MCP SMB ThinkCall"
-    },
-    {
-      "type": "streamable-http",
-      "url": "https://mcp.thinkneo.app/smb/smartcampaign/mcp",
-      "label": "MCP SMB SmartCampaign"
     }
   ]
 }

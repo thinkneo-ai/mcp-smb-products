@@ -1,14 +1,12 @@
 # ThinkNEO MCP SMB Products
 
-**13 standalone MCP servers for SMBs** — each a separate product, billed via TNC (ThinkNEO Credits).
+**8 standalone MCP servers for SMBs** — each a separate product, billed via TNC (ThinkNEO Credits).
 
 [![Glama AAA](https://img.shields.io/badge/Glama-AAA-gold)](https://glama.ai/mcp/servers?q=thinkneo)
 [![MCP Protocol](https://img.shields.io/badge/MCP-streamable--http-blue)](https://modelcontextprotocol.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
 ## Products
-
-### Developer Infrastructure
 
 | Product | Tools | Cost/call | Endpoint |
 |---------|-------|-----------|----------|
@@ -20,16 +18,6 @@
 | **MCP SMB Memory** | 5 | 0.5-1 TNC | `mcp.thinkneo.app/smb/memory/mcp` |
 | **MCP SMB ThinkSecure** | 5 | 0.5-3 TNC | `mcp.thinkneo.app/smb/thinksecure/mcp` |
 | **MCP SMB A2A Lite** | 5 | 0.5-5 TNC | `mcp.thinkneo.app/smb/a2a-lite/mcp` |
-
-### Business Apps
-
-| Product | Tools | Cost/call | Endpoint |
-|---------|-------|-----------|----------|
-| **MCP SMB SmartCEO** | 5 | 2-3 TNC | `mcp.thinkneo.app/smb/smartceo/mcp` |
-| **MCP SMB Mary** | 6 | 1-2 TNC | `mcp.thinkneo.app/smb/mary/mcp` |
-| **MCP SMB Think3D** | 5 | 1-12 TNC | `mcp.thinkneo.app/smb/think3d/mcp` |
-| **MCP SMB ThinkCall** | 5 | 0.5-5 TNC | `mcp.thinkneo.app/smb/thinkcall/mcp` |
-| **MCP SMB SmartCampaign** | 5 | 3-5 TNC | `mcp.thinkneo.app/smb/smartcampaign/mcp` |
 
 ## Quick Start
 
@@ -67,12 +55,7 @@ thinkneo-mcp-products/
 ├── mcp-memory/
 ├── mcp-thinksecure/
 ├── mcp-a2a-lite/
-├── mcp-smartceo/
-├── mcp-mary/
-├── mcp-think3d/
-├── mcp-thinkcall/
-├── mcp-smartcampaign/
-├── docker-compose.yml   # Orchestrates all 13 services
+├── docker-compose.yml   # Orchestrates all 8 services
 ├── Dockerfile           # Shared base image
 └── nginx-products.conf  # Nginx routing config
 ```
@@ -81,7 +64,7 @@ thinkneo-mcp-products/
 
 All tools are billed via **TNC (ThinkNEO Credits)**:
 - Each API call deducts credits from your balance
-- Costs vary by tool complexity (0.5 - 12 TNC per call)
+- Costs vary by tool complexity (0.5 - 5 TNC per call)
 - Free trial: **500 TNC** on signup (no credit card)
 - Top up: **$1 = 100 TNC**
 
@@ -92,7 +75,7 @@ git clone https://github.com/thinkneo-ai/mcp-smb-products.git
 cd mcp-smb-products
 cp .env.example .env   # Configure DB + Redis
 make migrate           # Create TNC tables
-make build             # Build all 13 images
+make build             # Build all 8 images
 make up                # Start all services
 ```
 
