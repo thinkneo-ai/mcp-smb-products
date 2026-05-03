@@ -1,0 +1,19 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "ai.thinkneo/smb-observability",
+  "title": "MCP SMB Observability",
+  "description": "Datadog for AI Agents \u2014 trace every agent call with latency, cost, errors, and decision points. Session-based tracing with dashboard aggregation. 5 tools, TNC credits billing.",
+  "websiteUrl": "https://thinkneo.app",
+  "repository": {
+    "url": "https://github.com/thinkneo-ai/mcp-smb-products",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "license": "MIT",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.thinkneo.app/smb/observability/mcp"
+    }
+  ]
+}

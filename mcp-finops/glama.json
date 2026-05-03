@@ -1,0 +1,22 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "thinkneo-smb-finops",
+  "description": "AI cost management for SMBs \u2014 track spending across providers, set budgets with hard limits, forecast costs, and compare model pricing. 5 tools, TNC credits billing.",
+  "maintainers": [
+    "thinkneo-ai"
+  ],
+  "repository": "https://github.com/thinkneo-ai/mcp-smb-products",
+  "homepage": "https://thinkneo.app",
+  "categories": [
+    "analytics",
+    "devops"
+  ],
+  "tags": [
+    "finops",
+    "cost-management",
+    "budget",
+    "ai-spending",
+    "smb",
+    "mcp"
+  ]
+}

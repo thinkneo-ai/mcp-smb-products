@@ -1,0 +1,22 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "thinkneo-smb-trust-score",
+  "description": "AI Governance scoring (0-100) with badge system \u2014 evaluate your AI operations across 10 categories. Platinum/Gold/Silver/Bronze tiers with actionable recommendations. 4 tools, TNC credits billing.",
+  "maintainers": [
+    "thinkneo-ai"
+  ],
+  "repository": "https://github.com/thinkneo-ai/mcp-smb-products",
+  "homepage": "https://thinkneo.app",
+  "categories": [
+    "governance",
+    "security"
+  ],
+  "tags": [
+    "trust-score",
+    "governance",
+    "compliance",
+    "badge",
+    "smb",
+    "mcp"
+  ]
+}

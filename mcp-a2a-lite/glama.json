@@ -1,0 +1,22 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "thinkneo-smb-a2a-lite",
+  "description": "Deploy A2A-protocol agents with public discovery \u2014 register agents, discover by skill, send tasks, and manage agent cards. A2A Protocol v0.3 compliant. 5 tools, TNC credits billing.",
+  "maintainers": [
+    "thinkneo-ai"
+  ],
+  "repository": "https://github.com/thinkneo-ai/mcp-smb-products",
+  "homepage": "https://thinkneo.app",
+  "categories": [
+    "devops",
+    "governance"
+  ],
+  "tags": [
+    "a2a-protocol",
+    "agent-discovery",
+    "interoperability",
+    "task-dispatch",
+    "smb",
+    "mcp"
+  ]
+}

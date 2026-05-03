@@ -1,0 +1,28 @@
+name: thinkneo-ai/smb-guardrails
+displayName: MCP SMB Guardrails
+description: >
+  AI safety for SMBs — detect prompt injection, PII leaks, secrets exposure, and toxic content before they reach your models. 4 tools, TNC credits billing.
+homepage: https://thinkneo.app
+icon: https://thinkneo.app/favicon.ico
+license: MIT
+tags:
+  - guardrails
+  - prompt-injection
+  - pii-detection
+  - secrets-scanning
+  - smb
+  - mcp
+
+start: uvicorn src.server:app --host 0.0.0.0 --port 8101
+
+config:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  type: object
+  properties:
+    apiKey:
+      type: string
+      title: ThinkNEO API Key (TNC Credits)
+      description: >
+        Required for all tools. Each call consumes TNC credits.
+        Get your key and free trial credits at https://thinkneo.app/signup
+      secret: true

@@ -1,0 +1,28 @@
+name: thinkneo-ai/smb-smartcampaign
+displayName: MCP SMB SmartCampaign
+description: >
+  Campaign intelligence platform — 24/7 news monitoring, competitor agenda mapping, social sentiment analysis, deepfake detection, and talking point generation. 5 tools, TNC credits billing.
+homepage: https://thinkneo.app
+icon: https://thinkneo.app/favicon.ico
+license: MIT
+tags:
+  - campaign-intelligence
+  - news-monitoring
+  - deepfake-detection
+  - sentiment
+  - smb
+  - mcp
+
+start: uvicorn src.server:app --host 0.0.0.0 --port 8113
+
+config:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  type: object
+  properties:
+    apiKey:
+      type: string
+      title: ThinkNEO API Key (TNC Credits)
+      description: >
+        Required for all tools. Each call consumes TNC credits.
+        Get your key and free trial credits at https://thinkneo.app/signup
+      secret: true

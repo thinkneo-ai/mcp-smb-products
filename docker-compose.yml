@@ -1,0 +1,264 @@
+version: "3.8"
+
+x-common: &common
+  restart: unless-stopped
+  env_file: .env
+  logging:
+    driver: "json-file"
+    options:
+      max-size: "10m"
+      max-file: "3"
+  deploy:
+    resources:
+      limits:
+        cpus: "0.5"
+        memory: 256m
+      reservations:
+        cpus: "0.1"
+        memory: 64m
+
+services:
+  # --- Shared Infrastructure ---
+  redis:
+    image: redis:7-alpine
+    container_name: mcp-products-redis
+    command: ["redis-server", "--requirepass", "${MCP_REDIS_PASSWORD}", "--appendonly", "yes", "--maxmemory", "128mb", "--maxmemory-policy", "allkeys-lru"]
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${MCP_REDIS_PASSWORD}", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: "0.3"
+          memory: 192m
+
+  # --- MCP SMB Developer Products ---
+  mcp-smb-guardrails:
+    <<: *common
+    build:
+      context: .
+      args:
+        PRODUCT_DIR: mcp-guardrails
+        PORT: "8101"
+    container_name: mcp-smb-guardrails
+    ports:
+      - "127.0.0.1:8101:8101"
+    environment:
+      PORT: "8101"
+      PUBLIC_URL: "https://mcp.thinkneo.app/smb/guardrails"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  mcp-finops:
+    <<: *common
+    build:
+      context: .
+      args:
+        PRODUCT_DIR: mcp-finops
+        PORT: "8102"
+    container_name: mcp-smb-finops
+    ports:
+      - "127.0.0.1:8102:8102"
+    environment:
+      PORT: "8102"
+      PUBLIC_URL: "https://mcp.thinkneo.app/smb/finops"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  mcp-observability:
+    <<: *common
+    build:
+      context: .
+      args:
+        PRODUCT_DIR: mcp-observability
+        PORT: "8103"
+    container_name: mcp-smb-observability
+    ports:
+      - "127.0.0.1:8103:8103"
+    environment:
+      PORT: "8103"
+      PUBLIC_URL: "https://mcp.thinkneo.app/smb/observability"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  mcp-router:
+    <<: *common
+    build:
+      context: .
+      args:
+        PRODUCT_DIR: mcp-router
+        PORT: "8104"
+    container_name: mcp-smb-router
+    ports:
+      - "127.0.0.1:8104:8104"
+    environment:
+      PORT: "8104"
+      PUBLIC_URL: "https://mcp.thinkneo.app/smb/router"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  mcp-trust-score:
+    <<: *common
+    build:
+      context: .
+      args:
+        PRODUCT_DIR: mcp-trust-score
+        PORT: "8105"
+    container_name: mcp-smb-trust-score
+    ports:
+      - "127.0.0.1:8105:8105"
+    environment:
+      PORT: "8105"
+      PUBLIC_URL: "https://mcp.thinkneo.app/smb/trust-score"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  mcp-memory:
+    <<: *common
+    build:
+      context: .
+      args:
+        PRODUCT_DIR: mcp-memory
+        PORT: "8106"
+    container_name: mcp-smb-memory
+    ports:
+      - "127.0.0.1:8106:8106"
+    environment:
+      PORT: "8106"
+      PUBLIC_URL: "https://mcp.thinkneo.app/smb/memory"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  mcp-thinksecure:
+    <<: *common
+    build:
+      context: .
+      args:
+        PRODUCT_DIR: mcp-thinksecure
+        PORT: "8107"
+    container_name: mcp-smb-thinksecure
+    ports:
+      - "127.0.0.1:8107:8107"
+    environment:
+      PORT: "8107"
+      PUBLIC_URL: "https://mcp.thinkneo.app/smb/thinksecure"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  mcp-a2a-lite:
+    <<: *common
+    build:
+      context: .
+      args:
+        PRODUCT_DIR: mcp-a2a-lite
+        PORT: "8108"
+    container_name: mcp-smb-a2a-lite
+    ports:
+      - "127.0.0.1:8108:8108"
+    environment:
+      PORT: "8108"
+      PUBLIC_URL: "https://mcp.thinkneo.app/smb/a2a-lite"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  # --- MCP SMB Business Products ---
+  mcp-smartceo:
+    <<: *common
+    build:
+      context: .
+      args:
+        PRODUCT_DIR: mcp-smartceo
+        PORT: "8109"
+    container_name: mcp-smb-smartceo
+    ports:
+      - "127.0.0.1:8109:8109"
+    environment:
+      PORT: "8109"
+      PUBLIC_URL: "https://mcp.thinkneo.app/smb/smartceo"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  mcp-mary:
+    <<: *common
+    build:
+      context: .
+      args:
+        PRODUCT_DIR: mcp-mary
+        PORT: "8110"
+    container_name: mcp-smb-mary
+    ports:
+      - "127.0.0.1:8110:8110"
+    environment:
+      PORT: "8110"
+      PUBLIC_URL: "https://mcp.thinkneo.app/smb/mary"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  mcp-think3d:
+    <<: *common
+    build:
+      context: .
+      args:
+        PRODUCT_DIR: mcp-think3d
+        PORT: "8111"
+    container_name: mcp-smb-think3d
+    ports:
+      - "127.0.0.1:8111:8111"
+    environment:
+      PORT: "8111"
+      PUBLIC_URL: "https://mcp.thinkneo.app/smb/think3d"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  mcp-thinkcall:
+    <<: *common
+    build:
+      context: .
+      args:
+        PRODUCT_DIR: mcp-thinkcall
+        PORT: "8112"
+    container_name: mcp-smb-thinkcall
+    ports:
+      - "127.0.0.1:8112:8112"
+    environment:
+      PORT: "8112"
+      PUBLIC_URL: "https://mcp.thinkneo.app/smb/thinkcall"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  mcp-smartcampaign:
+    <<: *common
+    build:
+      context: .
+      args:
+        PRODUCT_DIR: mcp-smartcampaign
+        PORT: "8113"
+    container_name: mcp-smb-smartcampaign
+    ports:
+      - "127.0.0.1:8113:8113"
+    environment:
+      PORT: "8113"
+      PUBLIC_URL: "https://mcp.thinkneo.app/smb/smartcampaign"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+volumes:
+  redis_data: {}

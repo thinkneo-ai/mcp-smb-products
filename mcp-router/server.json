@@ -1,0 +1,19 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "ai.thinkneo/smb-router",
+  "title": "MCP SMB Router",
+  "description": "AI Smart Router \u2014 route requests across 17+ models from 9 providers (Anthropic, OpenAI, Google, Meta, Mistral, DeepSeek, Alibaba, Cohere, xAI). Optimize for cost, quality, or latency. 4 tools, TNC credits billing.",
+  "websiteUrl": "https://thinkneo.app",
+  "repository": {
+    "url": "https://github.com/thinkneo-ai/mcp-smb-products",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "license": "MIT",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.thinkneo.app/smb/router/mcp"
+    }
+  ]
+}

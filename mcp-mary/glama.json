@@ -1,0 +1,22 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "thinkneo-smb-mary",
+  "description": "AI Executive Assistant \u2014 manage tasks, contacts, calendar, documents, email drafts, and expenses through a single MCP interface. Bilingual (EN/PT-BR). 6 tools, TNC credits billing.",
+  "maintainers": [
+    "thinkneo-ai"
+  ],
+  "repository": "https://github.com/thinkneo-ai/mcp-smb-products",
+  "homepage": "https://thinkneo.app",
+  "categories": [
+    "productivity",
+    "communication"
+  ],
+  "tags": [
+    "executive-assistant",
+    "task-management",
+    "email",
+    "scheduling",
+    "smb",
+    "mcp"
+  ]
+}

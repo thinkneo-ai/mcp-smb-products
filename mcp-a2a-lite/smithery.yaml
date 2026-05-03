@@ -1,0 +1,28 @@
+name: thinkneo-ai/smb-a2a-lite
+displayName: MCP SMB A2A Lite
+description: >
+  Deploy A2A-protocol agents with public discovery — register agents, discover by skill, send tasks, and manage agent cards. A2A Protocol v0.3 compliant. 5 tools, TNC credits billing.
+homepage: https://thinkneo.app
+icon: https://thinkneo.app/favicon.ico
+license: MIT
+tags:
+  - a2a-protocol
+  - agent-discovery
+  - interoperability
+  - task-dispatch
+  - smb
+  - mcp
+
+start: uvicorn src.server:app --host 0.0.0.0 --port 8108
+
+config:
+  $schema: "http://json-schema.org/draft-07/schema#"
+  type: object
+  properties:
+    apiKey:
+      type: string
+      title: ThinkNEO API Key (TNC Credits)
+      description: >
+        Required for all tools. Each call consumes TNC credits.
+        Get your key and free trial credits at https://thinkneo.app/signup
+      secret: true

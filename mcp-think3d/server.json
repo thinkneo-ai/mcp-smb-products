@@ -1,0 +1,19 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
+  "name": "ai.thinkneo/smb-think3d",
+  "title": "MCP SMB Think3D",
+  "description": "Generate 3D models from text or images \u2014 GLB output with PBR textures, LOD variants, and format conversion (OBJ/FBX/STL/USDZ). 5 tools, TNC credits billing.",
+  "websiteUrl": "https://thinkneo.app",
+  "repository": {
+    "url": "https://github.com/thinkneo-ai/mcp-smb-products",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "license": "MIT",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.thinkneo.app/smb/think3d/mcp"
+    }
+  ]
+}
