@@ -1,0 +1,86 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 8 * * 1'   # Monday 08:00 UTC
+
+jobs:
+  lint:
+    name: Lint & Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Syntax check all Python files
+        run: python -m py_compile shared/__init__.py shared/auth.py shared/billing.py shared/config.py shared/database.py shared/server_factory.py
+      - name: Syntax check all product servers
+        run: |
+          for product in mcp-guardrails mcp-finops mcp-observability mcp-router mcp-trust-score mcp-memory mcp-thinksecure mcp-a2a-lite; do
+            python -m py_compile $product/src/__init__.py
+            python -m py_compile $product/src/server.py
+            python -m py_compile $product/src/tools.py
+            echo "  ✓ $product"
+          done
+
+  import-test:
+    name: Import & Tool Registration
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Verify all 8 products import and register tools
+        run: python tests/test_imports.py
+
+  schema-validation:
+    name: Schema Validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install jsonschema requests
+      - name: Validate server.json against MCP Registry schema
+        run: |
+          python -c "
+          import json, requests, jsonschema
+          schema_url = 'https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json'
+          schema = requests.get(schema_url).json()
+          with open('server.json') as f:
+              doc = json.load(f)
+          jsonschema.validate(doc, schema)
+          print('server.json: VALID')
+          assert len(doc.get('description', '')) <= 100, f'description too long: {len(doc[\"description\"])} chars (max 100)'
+          print(f'description: {len(doc[\"description\"])} chars (OK)')
+          "
+      - name: Validate glama.json
+        run: |
+          python -c "
+          import json
+          with open('glama.json') as f:
+              doc = json.load(f)
+          assert 'maintainers' in doc, 'missing maintainers'
+          assert len(doc['maintainers']) > 0, 'empty maintainers'
+          print('glama.json: VALID')
+          "
+      - name: Validate all product server.json files
+        run: |
+          for product in mcp-guardrails mcp-finops mcp-observability mcp-router mcp-trust-score mcp-memory mcp-thinksecure mcp-a2a-lite; do
+            python -c "
+          import json
+          with open('$product/server.json') as f:
+              doc = json.load(f)
+          assert doc.get('name'), 'missing name'
+          print(f'  ✓ $product/server.json')
+          "
+          done
