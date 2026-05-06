@@ -86,9 +86,16 @@ All servers use **streamable-http** transport (MCP spec 2025-03-26):
 - Auth: `Authorization: Bearer <TNC_API_KEY>`
 - Protocol: JSON-RPC 2.0
 
+## Related
+
+| Server | Description | Tools |
+|--------|-------------|-------|
+| [thinkneo-control-plane](https://glama.ai/mcp/servers/thinkneo-ai/mcp-server) | Enterprise AI Control Plane — full governance suite | 72 tools |
+| [thinkneo-mcp-smb-products](https://glama.ai/mcp/servers/thinkneo-ai/mcp-smb-products) | SMB standalone products (this repo) | 37 tools |
+
 ## Enterprise
 
-Need the full enterprise suite with 46+ tools, SLA, and dedicated support?
+Need the full enterprise suite with 72 tools, SLA, and dedicated support?
 See [mcp.thinkneo.ai](https://mcp.thinkneo.ai) or contact hello@thinkneo.ai.
 
 ## License
