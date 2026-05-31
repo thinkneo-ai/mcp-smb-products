@@ -26,5 +26,8 @@
     "a2a-protocol",
     "smb",
     "tnc-credits"
+  ],
+  "relatedServers": [
+    "thinkneo-ai/mcp-server"
   ]
 }

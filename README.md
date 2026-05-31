@@ -2,7 +2,7 @@
 
 **8 standalone MCP servers for SMBs** — each a separate product, billed via TNC (ThinkNEO Credits).
 
-[![Glama AAA](https://img.shields.io/badge/Glama-AAA-gold)](https://glama.ai/mcp/servers?q=thinkneo)
+[![mcp-smb-products MCP server](https://glama.ai/mcp/servers/thinkneo-ai/mcp-smb-products/badges/card.svg)](https://glama.ai/mcp/servers/thinkneo-ai/mcp-smb-products)
 [![MCP Protocol](https://img.shields.io/badge/MCP-streamable--http-blue)](https://modelcontextprotocol.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
