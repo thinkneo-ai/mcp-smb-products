@@ -51,9 +51,13 @@ def register_tools(mcp: FastMCP) -> None:
     @mcp.tool()
     @tnc_tool(product=PRODUCT, cost=2.0)
     def guardrails_check(
-        text: Annotated[str, Field(description="Text to analyze for safety issues")],
+        text: Annotated[str, Field(
+            description="The text, prompt, or code snippet to analyze for safety issues. "
+            "Accepts any length up to 50,000 characters. Pass the full user input "
+            "or LLM prompt you want to validate before sending to a model."
+        )],
     ) -> str:
-        """Comprehensive safety check: injection + PII + secrets + toxicity. Costs 2 TNC."""
+        """Run a comprehensive safety scan that checks for prompt injection attacks, PII exposure (emails, phones, CPF, CNPJ, credit cards, SSN), and leaked secrets (API keys, tokens, passwords) in a single call. Returns a risk level (ALLOWED, MEDIUM, HIGH, or BLOCKED), a list of findings with severity, and a recommendation. Use this as a pre-flight check before sending any user input to an AI model. Costs 2 TNC per call."""
         findings = []
         # Injection
         for pattern, label in _INJECTION_PATTERNS:
@@ -83,9 +87,13 @@ def register_tools(mcp: FastMCP) -> None:
     @mcp.tool()
     @tnc_tool(product=PRODUCT, cost=1.0)
     def guardrails_scan_pii(
-        text: Annotated[str, Field(description="Text to scan for PII")],
+        text: Annotated[str, Field(
+            description="The text to scan for personally identifiable information. "
+            "Can be user input, chat messages, documents, or any string that might "
+            "contain sensitive data like email addresses, phone numbers, or ID numbers."
+        )],
     ) -> str:
-        """Detect PII (emails, phones, CPF, CNPJ, credit cards, SSN). Costs 1 TNC."""
+        """Scan text for personally identifiable information (PII) across international formats. Detects email addresses, phone numbers (US and international), Brazilian CPF and CNPJ, US Social Security Numbers, and credit card numbers. Returns whether PII was found, the type and count of each detection, and redacted samples for verification. Use this to audit text before logging, storing, or sharing. Costs 1 TNC per call."""
         findings = []
         for pattern, pii_type in _PII_PATTERNS:
             matches = re.findall(pattern, text)
@@ -96,9 +104,13 @@ def register_tools(mcp: FastMCP) -> None:
     @mcp.tool()
     @tnc_tool(product=PRODUCT, cost=1.0)
     def guardrails_scan_secrets(
-        text: Annotated[str, Field(description="Text/code to scan for exposed secrets")],
+        text: Annotated[str, Field(
+            description="The text or source code to scan for leaked credentials. "
+            "Pass code snippets, configuration files, log output, or any string "
+            "that might accidentally contain API keys, tokens, or passwords."
+        )],
     ) -> str:
-        """Detect exposed API keys, tokens, passwords in text/code. Costs 1 TNC."""
+        """Scan text or code for exposed secrets and credentials. Detects Stripe keys, AWS access keys, GitHub PATs, OpenAI keys, Slack tokens, JWTs, hardcoded passwords, and API key literals. Returns whether secrets were found, the type and count of each detection, and an overall severity rating (critical if secrets found, none otherwise). Use this before committing code or sharing logs. Costs 1 TNC per call."""
         findings = []
         for pattern, secret_type in _SECRET_PATTERNS:
             matches = re.findall(pattern, text)
@@ -109,9 +121,13 @@ def register_tools(mcp: FastMCP) -> None:
     @mcp.tool()
     @tnc_tool(product=PRODUCT, cost=1.0)
     def guardrails_scan_injection(
-        text: Annotated[str, Field(description="Prompt text to check for injection attacks")],
+        text: Annotated[str, Field(
+            description="The prompt or user message to analyze for injection attacks. "
+            "Pass the raw user input before it reaches the LLM system prompt. "
+            "Works with any language but patterns are optimized for English."
+        )],
     ) -> str:
-        """Detect prompt injection attempts (jailbreak, override, extraction). Costs 1 TNC."""
+        """Detect prompt injection and jailbreak attempts in user input. Checks for 10 attack patterns including instruction override, jailbreak personas (DAN), system prompt extraction, safety bypass, sudo mode, debug mode, base64 smuggling, and unicode obfuscation. Returns whether an injection was detected, the risk level (HIGH or SAFE), and a list of specific attack types found. Use this to protect your AI application from adversarial inputs. Costs 1 TNC per call."""
         findings = []
         for pattern, label in _INJECTION_PATTERNS:
             if re.search(pattern, text, re.IGNORECASE):
