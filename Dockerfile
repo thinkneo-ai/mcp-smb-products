@@ -1,6 +1,6 @@
 FROM python:3.12-slim
 
-ARG PRODUCT_DIR
+ARG PRODUCT_DIR=mcp-guardrails
 ARG PORT=8090
 
 LABEL org.opencontainers.image.title="ThinkNEO MCP Product"
